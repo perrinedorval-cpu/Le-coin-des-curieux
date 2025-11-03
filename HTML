@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le coin des curieux</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="placeholder_logo.png" alt="Le coin des curieux">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher une ressource ou un article...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="login">
+                <button id="login-btn" class="btn-login"><i class="fas fa-user"></i> Enseignant</button>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="blog.html"><i class="fas fa-book"></i> Blog</a></li>
+            <li><a href="ressources.html"><i class="fas fa-folder-open"></i> Ressources</a></li>
+            <li><a href="https://www.education.gouv.fr/" target="_blank"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-banner">
+        <div class="container">
+            <p class="handwritten">Apprendre c’est un jeu d’enfant !</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="blog-preview container">
+            <h2><i class="fas fa-book-open"></i> Derniers articles</h2>
+            <div class="articles">
+                <article>
+                    <div class="article-image">
+                        <img src="placeholder_article1.png" alt="Motiver les élèves">
+                    </div>
+                    <div class="article-content">
+                        <h3>Comment motiver les élèves en classe</h3>
+                        <p>Découvrez nos astuces pour capter l'attention de vos élèves et rendre l'apprentissage ludique et efficace.</p>
+                        <a href="#" class="btn-read">Lire la suite</a>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-image">
+                        <img src="placeholder_article2.png" alt="Pédagogie par le jeu">
+                    </div>
+                    <div class="article-content">
+                        <h3>Les bienfaits de la pédagogie par le jeu</h3>
+                        <p>Pourquoi et comment intégrer le jeu en classe ? Témoignages et exemples concrets.</p>
+                        <a href="#" class="btn-read">Lire la suite</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="resources-preview container">
+            <h2><i class="fas fa-folder-open"></i> Séances par matière</h2>
+            <div class="resources">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathématiques</h3>
+                    <p>Fiches et séances clés en main pour tous les niveaux.</p>
+                    <a href="#" class="btn-more">Voir plus</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Français</h3>
+                    <p>Activités et exercices variés pour travailler la langue.</p>
+                    <a href="#" class="btn-more">Voir plus</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Sciences</h3>
+                    <p>Expériences et leçons pour éveiller la curiosité scientifique.</p>
+                    <a href="#" class="btn-more">Voir plus</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Contact</a>
+                <a href="#">À propos</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>© 2025 Le coin des curieux - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Modale de connexion enseignant -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion Enseignant</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
