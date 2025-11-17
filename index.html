@@ -3,127 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le coin des curieux</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Le Coin Des Curieux</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="header-container">
             <div class="logo">
-                <img src="placeholder_logo.png" alt="Le coin des curieux">
+                <img src="placeholder_logo.png" alt="Le Coin Des Curieux">
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Rechercher une ressource ou un article...">
-                <button><i class="fas fa-search"></i></button>
+                <input type="text" id="search-input" placeholder="Rechercher un article ou une ressource...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
             </div>
             <div class="login">
-                <button id="login-btn" class="btn-login"><i class="fas fa-user"></i> Enseignant</button>
+                <button id="login-btn" class="btn-login"><i class="fas fa-user-circle"></i> Enseignant</button>
             </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
     <nav class="main-nav">
-        <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="blog.html"><i class="fas fa-book"></i> Blog</a></li>
-            <li><a href="ressources.html"><i class="fas fa-folder-open"></i> Ressources</a></li>
-            <li><a href="https://www.education.gouv.fr/" target="_blank"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#accueil" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
+            <li class="nav-item"><a href="#blog" class="nav-link"><i class="fas fa-book-open"></i> Blog</a></li>
+            <li class="nav-item"><a href="#exchange" class="nav-link"><i class="fas fa-comments"></i> Échanges</a></li>
+            <li class="nav-item"><a href="#resources" class="nav-link"><i class="fas fa-folder-open"></i> Ressources</a></li>
+            <li class="nav-item external"><a href="https://www.education.gouv.fr/" target="_blank" class="nav-link"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
         </ul>
     </nav>
 
-    <div class="hero-banner">
-        <div class="container">
-            <p class="handwritten">Apprendre c’est un jeu d’enfant !</p>
-        </div>
-    </div>
-
     <main>
-        <section class="blog-preview container">
-            <h2><i class="fas fa-book-open"></i> Derniers articles</h2>
-            <div class="articles">
-                <article>
+        <!-- Section Accueil -->
+        <section id="accueil" class="hero">
+            <div class="hero-banner">
+                <p class="handwritten">Apprendre c’est un jeu d’enfant !</p>
+            </div>
+            <div class="hero-images">
+                <img src="placeholder_papillon.png" alt="Papillon" class="bg-image">
+                <img src="placeholder_stylo.png" alt="Stylo" class="bg-image">
+                <img src="placeholder_ecole.png" alt="École" class="bg-image">
+                <img src="placeholder_crayon.png" alt="Crayon" class="bg-image">
+            </div>
+        </section>
+
+        <!-- Section Blog -->
+        <section id="blog" class="blog section">
+            <h2><i class="fas fa-book-open"></i> Nos articles pédagogiques</h2>
+            <div class="articles-grid">
+                <article class="article-card" data-category="dyslexie">
                     <div class="article-image">
-                        <img src="placeholder_article1.png" alt="Motiver les élèves">
+                        <img src="placeholder_article1.png" alt="Accompagner les élèves dyslexiques">
                     </div>
                     <div class="article-content">
-                        <h3>Comment motiver les élèves en classe</h3>
-                        <p>Découvrez nos astuces pour capter l'attention de vos élèves et rendre l'apprentissage ludique et efficace.</p>
-                        <a href="#" class="btn-read">Lire la suite</a>
+                        <h3>Accompagner les élèves dyslexiques</h3>
+                        <p>Stratégies pour adapter votre enseignement aux élèves dyslexiques et faciliter leur apprentissage.</p>
+                        <a href="#" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
-                <article>
+                <article class="article-card" data-category="tdah">
                     <div class="article-image">
-                        <img src="placeholder_article2.png" alt="Pédagogie par le jeu">
+                        <img src="placeholder_article2.png" alt="Stratégies pour les élèves TDAH">
                     </div>
                     <div class="article-content">
-                        <h3>Les bienfaits de la pédagogie par le jeu</h3>
-                        <p>Pourquoi et comment intégrer le jeu en classe ? Témoignages et exemples concrets.</p>
-                        <a href="#" class="btn-read">Lire la suite</a>
+                        <h3>Stratégies pour les élèves TDAH</h3>
+                        <p>Outils concrets pour aider les élèves atteints de TDAH à mieux se concentrer et s’organiser.</p>
+                        <a href="#" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="article-card" data-category="dyspraxie">
+                    <div class="article-image">
+                        <img src="placeholder_article3.png" alt="Adaptation pour les élèves dyspraxiques">
+                    </div>
+                    <div class="article-content">
+                        <h3>Adaptation pour les élèves dyspraxiques</h3>
+                        <p>Méthodes pour accompagner les élèves dyspraxiques dans leurs apprentissages quotidiens.</p>
+                        <a href="#" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="resources-preview container">
-            <h2><i class="fas fa-folder-open"></i> Séances par matière</h2>
-            <div class="resources">
+        <!-- Section Échanges -->
+        <section id="exchange" class="exchange section">
+            <h2><i class="fas fa-comments"></i> Échanges entre enseignants</h2>
+            <div class="forum-container">
+                <div class="forum-messages" id="forum-messages">
+                    <!-- Messages seront ajoutés ici -->
+                </div>
+                <div class="forum-input">
+                    <textarea id="forum-message" placeholder="Partagez vos expériences ou posez une question..."></textarea>
+                    <button id="post-message" class="btn-post"><i class="fas fa-paper-plane"></i> Publier</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Ressources -->
+        <section id="resources" class="resources section">
+            <h2><i class="fas fa-folder-open"></i> Ressources par matière</h2>
+            <div class="resources-grid">
                 <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
+                    <div class="resource-icon"><i class="fas fa-calculator"></i></div>
                     <h3>Mathématiques</h3>
-                    <p>Fiches et séances clés en main pour tous les niveaux.</p>
-                    <a href="#" class="btn-more">Voir plus</a>
+                    <ul>
+                        <li><a href="#">Séance 1 : Les fractions</a></li>
+                        <li><a href="#">Séance 2 : La géométrie</a></li>
+                    </ul>
                 </div>
                 <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
+                    <div class="resource-icon"><i class="fas fa-book"></i></div>
                     <h3>Français</h3>
-                    <p>Activités et exercices variés pour travailler la langue.</p>
-                    <a href="#" class="btn-more">Voir plus</a>
+                    <ul>
+                        <li><a href="#">Séance 1 : La grammaire</a></li>
+                        <li><a href="#">Séance 2 : La conjugaison</a></li>
+                    </ul>
                 </div>
                 <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
+                    <div class="resource-icon"><i class="fas fa-flask"></i></div>
                     <h3>Sciences</h3>
-                    <p>Expériences et leçons pour éveiller la curiosité scientifique.</p>
-                    <a href="#" class="btn-more">Voir plus</a>
+                    <ul>
+                        <li><a href="#">Séance 1 : Les états de la matière</a></li>
+                        <li><a href="#">Séance 2 : Le système solaire</a></li>
+                    </ul>
                 </div>
+            </div>
+        </section>
+
+        <!-- Section Webinaires avec Calendrier -->
+        <section class="webinaires section">
+            <h2><i class="fas fa-calendar-alt"></i> Prochains Webinaires</h2>
+            <div class="calendar-container">
+                <div id="calendar"></div>
+            </div>
+            <div class="webinaire-form">
+                <h3>Inscription à un webinaire</h3>
+                <form id="webinaire-inscription">
+                    <input type="text" id="webinaire-id" placeholder="ID du webinaire" required>
+                    <input type="email" id="webinaire-email" placeholder="Votre email" required>
+                    <button type="submit" class="btn-inscrire">S'inscrire</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">Mentions légales</a>
-                <a href="#">Contact</a>
-                <a href="#">À propos</a>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p>© 2025 Le coin des curieux - Tous droits réservés</p>
-        </div>
+        <p>© 2025 Le Coin Des Curieux - Site pédagogique pour enseignants</p>
     </footer>
 
-    <!-- Modale de connexion enseignant -->
+    <!-- Modale de connexion -->
     <div id="login-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Connexion Enseignant</h2>
-            <form>
+            <form id="login-form">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" required>
@@ -137,6 +174,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
