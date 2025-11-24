@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght=300;400;600&family=Montserrat:wght=400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-container">
-         <img src="https://raw.githubusercontent.com/[perrinedorval-cpu]/[logo-le-coin-des-curieux.png]/[Principal]/images/logo-le-coin-des-curieux.png" alt="Le Coin Des Curieux">
-
+            <!-- Logo avec chemin relatif (si l'image est dans un dossier `images` à la racine) -->
+            <div class="logo">
+                <img src="images/logo-le-coin-des-curieux.png" alt="Le Coin Des Curieux - Site pédagogique pour enseignants">
+            </div>
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Rechercher un article ou une ressource...">
                 <button id="search-button"><i class="fas fa-search"></i></button>
@@ -26,7 +28,6 @@
             <button class="nav-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </header>
-
     <nav class="main-nav">
         <ul class="nav-list">
             <li class="nav-item"><a href="#accueil" class="nav-link active"><i class="fas fa-home"></i> Accueil</a></li>
@@ -36,7 +37,6 @@
             <li class="nav-item external"><a href="https://www.education.gouv.fr/" target="_blank" class="nav-link"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
         </ul>
     </nav>
-
     <main>
         <!-- Section Accueil -->
         <section id="accueil" class="hero">
@@ -44,20 +44,19 @@
                 <p class="handwritten">Apprendre c’est un jeu d’enfant !</p>
             </div>
             <div class="hero-images">
-                <img src="placeholder_papillon.png" alt="Papillon" class="bg-image">
-                <img src="placeholder_stylo.png" alt="Stylo" class="bg-image">
-                <img src="placeholder_ecole.png" alt="École" class="bg-image">
-                <img src="placeholder_crayon.png" alt="Crayon" class="bg-image">
+                <img src="images/papillon.png" alt="Papillon" class="bg-image" loading="lazy">
+                <img src="images/stylo.png" alt="Stylo" class="bg-image" loading="lazy">
+                <img src="images/ecole.png" alt="École" class="bg-image" loading="lazy">
+                <img src="images/crayon.png" alt="Crayon" class="bg-image" loading="lazy">
             </div>
         </section>
-
         <!-- Section Blog -->
         <section id="blog" class="blog section">
             <h2><i class="fas fa-book-open"></i> Nos articles pédagogiques</h2>
             <div class="articles-grid">
                 <article class="article-card" data-category="dyslexie">
                     <div class="article-image">
-                        <img src="placeholder_article1.png" alt="Accompagner les élèves dyslexiques">
+                        <img src="images/article1-dyslexie.jpg" alt="Accompagner les élèves dyslexiques" loading="lazy">
                     </div>
                     <div class="article-content">
                         <h3>Accompagner les élèves dyslexiques</h3>
@@ -67,7 +66,7 @@
                 </article>
                 <article class="article-card" data-category="tdah">
                     <div class="article-image">
-                        <img src="placeholder_article2.png" alt="Stratégies pour les élèves TDAH">
+                        <img src="images/article2-tdah.jpg" alt="Stratégies pour les élèves TDAH" loading="lazy">
                     </div>
                     <div class="article-content">
                         <h3>Stratégies pour les élèves TDAH</h3>
@@ -77,7 +76,7 @@
                 </article>
                 <article class="article-card" data-category="dyspraxie">
                     <div class="article-image">
-                        <img src="placeholder_article3.png" alt="Adaptation pour les élèves dyspraxiques">
+                        <img src="images/article3-dyspraxie.jpg" alt="Adaptation pour les élèves dyspraxiques" loading="lazy">
                     </div>
                     <div class="article-content">
                         <h3>Adaptation pour les élèves dyspraxiques</h3>
@@ -87,7 +86,6 @@
                 </article>
             </div>
         </section>
-
         <!-- Section Échanges -->
         <section id="exchange" class="exchange section">
             <h2><i class="fas fa-comments"></i> Échanges entre enseignants</h2>
@@ -101,7 +99,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Section Ressources -->
         <section id="resources" class="resources section">
             <h2><i class="fas fa-folder-open"></i> Ressources par matière</h2>
@@ -132,7 +129,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Section Webinaires avec Calendrier -->
         <section class="webinaires section">
             <h2><i class="fas fa-calendar-alt"></i> Prochains Webinaires</h2>
@@ -149,11 +145,9 @@
             </div>
         </section>
     </main>
-
     <footer>
         <p>© 2025 Le Coin Des Curieux - Site pédagogique pour enseignants</p>
     </footer>
-
     <!-- Modale de connexion -->
     <div id="login-modal" class="modal">
         <div class="modal-content">
@@ -172,7 +166,6 @@
             </form>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
 </body>
