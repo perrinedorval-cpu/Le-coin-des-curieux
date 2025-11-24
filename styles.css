@@ -10,7 +10,7 @@
     --blanc: #FFFFFF;
     --ombre: 0 4px 12px rgba(0, 0, 0, 0.08);
     --rayon: 12px;
-    --transition: all 0.3s ease; 
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -62,12 +62,12 @@ header {
     flex-wrap: wrap;
 }
 
+/* Style pour le logo */
 .logo img {
-    height: 60px; 
+    height: 60px;
     width: auto;
     display: block;
 }
-
 
 .search-bar {
     display: flex;
@@ -576,11 +576,5 @@ footer {
     .articles-grid, .resources-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-    }
-}
-
-
-    .search-bar input {
-        width: 200px;
     }
 }
