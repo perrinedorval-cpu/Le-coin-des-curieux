@@ -1,19 +1,48 @@
 /* ===========================
-   Global
+   Global & Réinitialisation
 =========================== */
+:root {
+    --primary-color: #1E3A8A; /* Bleu foncé (Tête de lecture) */
+    --secondary-color: #2563eb; /* Bleu vif (Boutons) */
+    --text-color: #1f2937;
+    --background-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f6f8;
-    color: #1f2937;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.section {
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
 /* ===========================
-   Header
+   Header
 =========================== */
 header {
-    background-color: #1E3A8A; /* bleu foncé */
+    background-color: var(--primary-color);
     color: #ffffff;
     padding: 15px 20px;
 }
@@ -23,17 +52,20 @@ header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Logo */
 .logo img {
     height: 60px;
+    display: block;
 }
 
 /* Titre et sous-titre */
 .site-title {
     text-align: center;
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* Prend toute la largeur sur mobile */
     margin: 10px 0;
 }
 
@@ -41,28 +73,37 @@ header {
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 5px;
+    color: white;
 }
 
 .site-title .subtitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
-    color: #d1d5db; /* gris clair */
+    color: #d1d5db;
 }
 
 /* Barre de recherche */
+.search-bar {
+    display: flex;
+    order: 3; /* Positionné après le titre sur mobile */
+    margin: 10px 0;
+}
+
 .search-bar input {
     padding: 8px 12px;
     border-radius: 4px 0 0 4px;
-    border: none;
+    border: 1px solid #ccc;
+    flex-grow: 1;
 }
 
 .search-bar button {
     padding: 8px 12px;
     border: none;
-    background-color: #2563eb;
+    background-color: var(--secondary-color);
     color: white;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 /* Bouton login */
@@ -73,4 +114,442 @@ header {
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+    order: 4;
+}
+
+.btn-login:hover, .search-bar button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Bouton menu mobile */
+.nav-toggle {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+    order: 5;
+}
+
+/* ===========================
+   Navigation (NAV)
+=========================== */
+.main-nav {
+    background-color: #4B5563; /* Gris foncé */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #6B7280; /* Gris plus clair au survol/actif */
+}
+
+.nav-link {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    margin-right: 8px;
+}
+
+
+/* ===========================
+   Contenu principal (MAIN)
+=========================== */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- Section Héro --- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 300px; /* Hauteur par défaut */
+    background-color: #e5e7eb;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-banner {
+    z-index: 10;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.handwritten {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1;
+}
+
+.hero-images img {
+    position: absolute;
+    opacity: 0.3;
+}
+.hero-images img:nth-child(1) { top: 10px; left: 10%; width: 50px; }
+.hero-images img:nth-child(2) { bottom: 20px; right: 15%; width: 70px; }
+.hero-images img:nth-child(3) { top: 50%; right: 5%; width: 100px; transform: translateY(-50%); }
+.hero-images img:nth-child(4) { bottom: 5px; left: 5%; width: 40px; }
+
+/* --- Section Blog (Articles) --- */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.article-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.btn-read {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* --- Section Échanges (Forum) --- */
+.forum-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Hauteur fixe pour la zone de messages */
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.forum-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.forum-message {
+    background-color: #e0f2f7; /* Bleu très clair */
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--secondary-color);
+}
+.forum-message p { margin: 0 0 5px 0; }
+.forum-message small { display: block; text-align: right; color: #6B7280; font-size: 0.8rem; }
+
+.forum-input {
+    display: flex;
+    border-top: 1px solid #e5e7eb;
+    padding: 10px;
+}
+
+.forum-input textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    margin-right: 10px;
+    height: 40px;
+}
+
+.btn-post {
+    background-color: #2ecc71; /* Vert */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* --- Section Ressources --- */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.resource-card {
+    background-color: #f7f9fc; /* Fond très légèrement bleuté */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.resource-icon i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.resource-card h3 {
+    margin-bottom: 15px;
+}
+
+.resource-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.resource-card li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+/* --- Section Webinaires --- */
+.calendar-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+}
+
+.webinaire-form {
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.webinaire-form h3 {
+    margin-bottom: 15px;
+}
+
+#webinaire-inscription input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(50% - 20px);
+    max-width: 250px;
+}
+
+.btn-inscrire {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ===========================
+   Pied de page (FOOTER)
+=========================== */
+footer {
+    background-color: #374151; /* Gris foncé */
+    color: #9ca3af;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* ===========================
+   Modale de Connexion
+=========================== */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fond noir semi-transparent */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% du haut et centré horizontalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* S'assure que le padding n'augmente pas la largeur */
+}
+
+.btn-submit {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* ===========================
+   Notifications (JS Section 6)
+=========================== */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s, top 0.3s;
+}
+
+.notification.success { background-color: #2ecc71; }
+.notification.warning { background-color: #f39c12; }
+.notification.info { background-color: #3498db; }
+
+/* Animation de disparition */
+.notification.hide {
+    opacity: 0;
+    top: 0;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+@media (min-width: 768px) {
+    /* Header sur tablettes et PC */
+    .header-container {
+        flex-wrap: nowrap;
+    }
+
+    .site-title {
+        flex: 0 1 auto; /* Ne prend plus toute la largeur */
+        margin: 0 20px;
+        text-align: left;
+    }
+
+    .search-bar {
+        order: 0; /* Revient à sa place normale */
+        flex: 1 1 auto;
+        max-width: 300px;
+        margin: 0 10px;
+    }
+
+    .login {
+        order: 1;
+    }
+
+    .nav-toggle {
+        display: none; /* Cache le bouton de menu */
+    }
+}
+
+@media (max-width: 992px) {
+    /* Cache le menu sur les petits écrans par défaut */
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 100%; /* Sous la barre de navigation */
+        left: 0;
+        background-color: #4B5563;
+        z-index: 999;
+    }
+
+    .main-nav {
+        position: relative; /* Pour que le nav-list absolute fonctionne */
+    }
+
+    .nav-list.active {
+        display: flex; /* Affichage quand la classe est ajoutée par JS */
+    }
+    
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
