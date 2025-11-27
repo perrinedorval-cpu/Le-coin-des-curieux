@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="article-title">Titre de l'article - Le Coin Des Curieux</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&family=Montserrat:wght;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="image/logo-le-coin-des-curieux.png" alt="Le Coin Des Curieux" loading="lazy">
+                </a>
+            </div>
+            <div class="site-title">
+                <h1><a href="index.html" style="color: white;">Le Coin Des Curieux</a></h1>
+                <p class="subtitle">Ressources & Outils pour Enseignants</p>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Rechercher un article...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="login">
+                <button id="login-btn" class="btn-login"><i class="fas fa-user-circle"></i> Enseignant</button>
+            </div>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="index.html#accueil" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+            <li class="nav-item"><a href="index.html#blog" class="nav-link active"><i class="fas fa-book-open"></i> Blog</a></li>
+            <li class="nav-item"><a href="index.html#exchange" class="nav-link"><i class="fas fa-comments"></i> Échanges</a></li>
+            <li class="nav-item"><a href="index.html#resources" class="nav-link"><i class="fas fa-folder-open"></i> Ressources</a></li>
+            <li class="nav-item external"><a href="https://www.education.gouv.fr/" target="_blank" class="nav-link"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="article-main">
+        <article class="article-detail">
+            <div class="article-header">
+                <h1 id="article-h1-title">Titre de l'article</h1>
+                <div class="article-meta">
+                    <span class="article-category" id="article-category">Catégorie</span>
+                    <span class="article-date" id="article-date">Publié le 15 novembre 2025</span>
+                </div>
+                <img id="article-image" src="image/article1-dyslexie.jpg" alt="Image de l'article" class="article-detail-image">
+            </div>
+            <div class="article-body" id="article-body">
+                <!-- Contenu chargé dynamiquement -->
+            </div>
+            <div class="article-footer">
+                <div class="article-tags">
+                    <span>Mots-clés :</span>
+                    <span class="tag" id="article-tags">#pédagogie #dyslexie</span>
+                </div>
+                <button id="back-to-blog" class="btn-back"><i class="fas fa-arrow-left"></i> Retour aux articles</button>
+            </div>
+        </article>
+
+        <!-- Section "Articles similaires" -->
+        <section class="related-articles">
+            <h2><i class="fas fa-lightbulb"></i> Articles similaires</h2>
+            <div class="articles-grid" id="related-articles-grid">
+                <!-- Articles chargés dynamiquement -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 Le Coin Des Curieux - Site pédagogique pour enseignants</p>
+    </footer>
+
+    <!-- Modale de connexion -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion Enseignant</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Charger le contenu de l'article dynamiquement
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+
+            if (articleId) {
+                loadArticleContent(articleId);
+            } else {
+                window.location.href = 'index.html#blog';
+            }
+
+            // Gestion du bouton "Retour aux articles"
+            document.getElementById('back-to-blog').addEventListener('click', () => {
+                window.location.href = 'index.html#blog';
+            });
+        });
+
+        function loadArticleContent(articleId) {
+            // Données des articles (à remplacer par un appel API ou un fichier JSON en production)
+            const articles = {
+                'dyslexie': {
+                    title: 'Accompagner les élèves dyslexiques',
+                    category: 'Dyslexie',
+                    date: '15 novembre 2025',
+                    image: 'image/article1-dyslexie.jpg',
+                    content: `
+                        <h2>Introduction</h2>
+                        <p>La dyslexie est un trouble spécifique de l'apprentissage de la lecture, qui touche environ 5 à 10 % des enfants scolarisés. En tant qu'enseignant, il est essentiel d'adapter vos méthodes pour aider ces élèves à surmonter leurs difficultés et à réussir en classe.</p>
+
+                        <h2>Stratégies d'adaptation</h2>
+                        <h3>1. Utiliser des polices adaptées</h3>
+                        <p>Privilégiez des polices comme <strong>OpenDyslexic</strong> ou <strong>Arial</strong>, qui sont plus faciles à lire pour les élèves dyslexiques. Évitez les polices avec empattements (comme Times New Roman).</p>
+
+                        <h3>2. Structurer les textes</h3>
+                        <ul>
+                            <li>Utilisez des interlignes de 1,5 ou double.</li>
+                            <li>Surlignez les mots-clés ou les consignes importantes.</li>
+                            <li>Évitez les blocs de texte trop denses : aérez vos documents.</li>
+                        </ul>
+
+                        <h3>3. Proposer des supports multimédias</h3>
+                        <p>Les élèves dyslexiques bénéficient souvent de supports visuels ou auditifs. Voici quelques idées :</p>
+                        <ul>
+                            <li>Enregistrez les consignes à l'oral et mettez-les à disposition en podcast.</li>
+                            <li>Utilisez des schémas, des cartes mentales ou des vidéos pour expliquer les concepts.</li>
+                            <li>Proposez des livres audio en complément des textes écrits.</li>
+                        </ul>
+
+                        <h2>Outils numériques recommandés</h2>
+                        <ul>
+                            <li><strong>Antidote</strong> : Correcteur orthographique et grammatical adapté aux dyslexiques.</li>
+                            <li><strong>Speechify</strong> : Outil de synthèse vocale pour écouter les textes.</li>
+                            <li><strong>Lexibar</strong> : Barre d'outils pour faciliter la lecture et l'écriture.</li>
+                        </ul>
+
+                        <h2>Conclusion</h2>
+                        <p>Adapter son enseignement pour les élèves dyslexiques ne demande pas de révolutionner vos méthodes, mais simplement d'apporter quelques ajustements. Ces changements bénéficieront souvent à toute la classe !</p>
+                    `,
+                    tags: ['#pédagogie', '#dyslexie', '#inclusion'],
+                    related: ['tdah', 'dyspraxie']
+                },
+                'tdah': {
+                    title: 'Stratégies pour les élèves TDAH',
+                    category: 'TDAH',
+                    date: '20 novembre 2025',
+                    image: 'image/article2-tdah.jpg',
+                    content: `
+                        <h2>Comprendre le TDAH</h2>
+                        <p>Le Trouble du Déficit de l'Attention avec ou sans Hyperactivité (TDAH) se caractérise par des difficultés à se concentrer, une impulsivité et parfois une hyperactivité. Ces symptômes peuvent rendre le quotidien en classe particulièrement difficile pour l'élève et l'enseignant.</p>
+
+                        <h2>Stratégies pour la classe</h2>
+                        <h3>1. Structurer le temps</h3>
+                        <ul>
+                            <li>Utilisez des <strong>minuteurs visuels</strong> pour aider l'élève à gérer son temps.</li>
+                            <li>Découpez les tâches en étapes courtes et claires.</li>
+                            <li>Prévoyez des <strong>pauses fréquentes</strong> (ex: 5 minutes toutes les 20 minutes).</li>
+                        </ul>
+
+                        <h3>2. Adapter l'environnement</h3>
+                        <ul>
+                            <li>Placez l'élève près du tableau et loin des fenêtres pour limiter les distractions.</li>
+                            <li>Autorisez l'utilisation d'<strong>objets "fidget"</strong> (ex: balle anti-stress) pour canaliser l'agitation.</li>
+                            <li>Proposez un <strong>coin calme</strong> dans la classe pour les moments de surcharge.</li>
+                        </ul>
+
+                        <h2>Outils et ressources</h2>
+                        <ul>
+                            <li><strong>Time Timer</strong> : Minuteur visuel pour matérialiser le temps.</li>
+                            <li><strong>GoNoodle</strong> : Vidéos courtes pour des pauses actives.</li>
+                            <li><strong>ClassDojo</strong> : Outil de gestion de classe avec feedback en temps réel.</li>
+                        </ul>
+                    `,
+                    tags: ['#TDAH', '#concentration', '#pédagogie'],
+                    related: ['dyslexie', 'dyspraxie']
+                },
+                'dyspraxie': {
+                    title: 'Adaptation pour les élèves dyspraxiques',
+                    category: 'Dyspraxie',
+                    date: '25 novembre 2025',
+                    image: 'image/article3-dyspraxie.jpg',
+                    content: `
+                        <h2>Qu'est-ce que la dyspraxie ?</h2>
+                        <p>La dyspraxie est un trouble de la coordination motrice qui affecte la planification et l'exécution des gestes. Elle peut impacter l'écriture, l'organisation spatiale et même la parole.</p>
+
+                        <h2>Adaptations en classe</h2>
+                        <h3>1. Pour l'écriture</h3>
+                        <ul>
+                            <li>Autorisez l'utilisation d'un <strong>ordinateur ou d'une tablette</strong> pour les productions écrites.</li>
+                            <li>Proposez des <strong>polices adaptées</strong> (ex: Comic Sans, OpenDyslexic).</li>
+                            <li>Fournissez des <strong>grilles d'écriture</strong> pour guider la formation des lettres.</li>
+                        </ul>
+
+                        <h3>2. Pour les activités manuelles</h3>
+                        <ul>
+                            <li>Prévoyez des <strong>outils adaptés</strong> (ciseaux ergonomiques, règles antidérapantes).</li>
+                            <li>Simplifiez les consignes pour les activités de découpage ou de collage.</li>
+                            <li>Proposez des <strong>alternatives</strong> (ex: utiliser des autocollants au lieu de découper).</li>
+                        </ul>
+
+                        <h2>Ressources utiles</h2>
+                        <ul>
+                            <li><strong>GraphoGame</strong> : Jeu pour améliorer la coordination motrice fine.</li>
+                            <li><strong>Dyspraxie France</strong> : Association offrant des ressources et des formations.</li>
+                            <li><strong>Ortho & Logo</strong> : Logiciel d'aide à l'écriture.</li>
+                        </ul>
+                    `,
+                    tags: ['#dyspraxie', '#motricité', '#école'],
+                    related: ['dyslexie', 'tdah']
+                }
+            };
+
+            // Charger les données de l'article
+            const article = articles[articleId];
+            if (article) {
+                document.getElementById('article-title').textContent = `${article.title} - Le Coin Des Curieux`;
+                document.getElementById('article-h1-title').textContent = article.title;
+                document.getElementById('article-category').textContent = article.category;
+                document.getElementById('article-date').textContent = `Publié le ${article.date}`;
+                document.getElementById('article-image').src = article.image;
+                document.getElementById('article-image').alt = `Image illustrant l'article : ${article.title}`;
+                document.getElementById('article-body').innerHTML = article.content;
+                document.getElementById('article-tags').innerHTML = article.tags.join(' ');
+
+                // Charger les articles similaires
+                loadRelatedArticles(article.related);
+            } else {
+                document.getElementById('article-body').innerHTML = `<p>Article introuvable. <a href="index.html#blog">Retour aux articles</a>.</p>`;
+            }
+        }
+
+        function loadRelatedArticles(relatedIds) {
+            const relatedGrid = document.getElementById('related-articles-grid');
+            relatedGrid.innerHTML = ''; // Vider la grille
+
+            // Données des articles (identique à la page d'accueil)
+            const allArticles = {
+                'dyslexie': {
+                    title: 'Accompagner les élèves dyslexiques',
+                    description: 'Stratégies pour adapter votre enseignement aux élèves dyslexiques.',
+                    image: 'image/article1-dyslexie.jpg',
+                    url: 'articles/dyslexie.html'
+                },
+                'tdah': {
+                    title: 'Stratégies pour les élèves TDAH',
+                    description: 'Outils concrets pour aider les élèves atteints de TDAH.',
+                    image: 'image/article2-tdah.jpg',
+                    url: 'articles/tdah.html'
+                },
+                'dyspraxie': {
+                    title: 'Adaptation pour les élèves dyspraxiques',
+                    description: 'Méthodes pour accompagner les élèves dyspraxiques.',
+                    image: 'image/article3-dyspraxie.jpg',
+                    url: 'articles/dyspraxie.html'
+                }
+            };
+
+            relatedIds.forEach(id => {
+                const article = allArticles[id];
+                if (article) {
+                    const articleCard = document.createElement('article');
+                    articleCard.className = 'article-card';
+                    articleCard.innerHTML = `
+                        <div class="article-image">
+                            <img src="${article.image}" alt="${article.title}" loading="lazy">
+                        </div>
+                        <div class="article-content">
+                            <h3>${article.title}</h3>
+                            <p>${article.description}</p>
+                            <a href="article.html?id=${id}" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    `;
+                    relatedGrid.appendChild(articleCard);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
