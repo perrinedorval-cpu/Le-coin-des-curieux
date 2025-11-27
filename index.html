@@ -4,39 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Coin Des Curieux</title>
-    <!-- Font Awesome -->
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- FullCalendar -->
+    <!-- FullCalendar pour le calendrier -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="styles.css">
     <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&family=Montserrat:wght;400;500;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- En-tête -->
+    <!-- En-tête avec logo et titre -->
     <header>
         <div class="header-container">
+            <!-- Logo -->
             <div class="logo">
                 <img src="image/logo-le-coin-des-curieux.png" alt="Le Coin Des Curieux - Site pédagogique pour enseignants" loading="lazy">
             </div>
+            <!-- Titre et sous-titre -->
             <div class="site-title">
                 <h1>Le Coin Des Curieux</h1>
                 <p class="subtitle">Ressources & Outils pour Enseignants</p>
             </div>
+            <!-- Barre de recherche -->
             <div class="search-bar">
                 <input type="text" id="search-input" placeholder="Rechercher un article ou une ressource...">
                 <button id="search-button"><i class="fas fa-search"></i></button>
             </div>
+            <!-- Bouton de connexion -->
             <div class="login">
                 <button id="login-btn" class="btn-login"><i class="fas fa-user-circle"></i> Enseignant</button>
             </div>
+            <!-- Bouton menu mobile -->
             <button class="nav-toggle"><i class="fas fa-bars"></i></button>
         </div>
     </header>
-
     <!-- Navigation -->
     <nav class="main-nav">
         <ul class="nav-list">
@@ -47,7 +51,6 @@
             <li class="nav-item external"><a href="https://www.education.gouv.fr/" target="_blank" class="nav-link"><i class="fas fa-external-link-alt"></i> Éducation Nationale</a></li>
         </ul>
     </nav>
-
     <!-- Contenu principal -->
     <main>
         <!-- Section Accueil -->
@@ -59,15 +62,15 @@
                 <img src="image/papillon.png" alt="Papillon" class="bg-image" loading="lazy">
                 <img src="image/stylo.png" alt="Stylo" class="bg-image" loading="lazy">
                 <img src="image/ecole.png" alt="École" class="bg-image" loading="lazy">
+                <!-- Intégration de l'image de crayon depuis GitHub -->
                 <img src="https://raw.githubusercontent.com/tonutilisateur/tondepot/main/image/crayon.png" alt="Crayon" class="bg-image" loading="lazy">
             </div>
         </section>
-
         <!-- Section Blog -->
         <section id="blog" class="blog section">
             <h2><i class="fas fa-book-open"></i> Nos articles pédagogiques</h2>
             <div class="articles-grid">
-                <article class="article-card" data-category="dyslexie" data-url="articles/dyslexie.html">
+                <article class="article-card" data-category="dyslexie">
                     <div class="article-image">
                         <img src="image/article1-dyslexie.jpg" alt="Accompagner les élèves dyslexiques" loading="lazy">
                     </div>
@@ -77,7 +80,7 @@
                         <a href="#" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
-                <article class="article-card" data-category="tdah" data-url="articles/tdah.html">
+                <article class="article-card" data-category="tdah">
                     <div class="article-image">
                         <img src="image/article2-tdah.jpg" alt="Stratégies pour les élèves TDAH" loading="lazy">
                     </div>
@@ -87,7 +90,7 @@
                         <a href="#" class="btn-read">Lire la suite <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
-                <article class="article-card" data-category="dyspraxie" data-url="articles/dyspraxie.html">
+                <article class="article-card" data-category="dyspraxie">
                     <div class="article-image">
                         <img src="image/article3-dyspraxie.jpg" alt="Adaptation pour les élèves dyspraxiques" loading="lazy">
                     </div>
@@ -99,21 +102,17 @@
                 </article>
             </div>
         </section>
-
         <!-- Section Échanges -->
         <section id="exchange" class="exchange section">
             <h2><i class="fas fa-comments"></i> Échanges entre enseignants</h2>
             <div class="forum-container">
-                <div class="forum-messages" id="forum-messages">
-                    <!-- Messages chargés dynamiquement -->
-                </div>
+                <div class="forum-messages" id="forum-messages"></div>
                 <div class="forum-input">
                     <textarea id="forum-message" placeholder="Partagez vos expériences ou posez une question..."></textarea>
                     <button id="post-message" class="btn-post"><i class="fas fa-paper-plane"></i> Publier</button>
                 </div>
             </div>
         </section>
-
         <!-- Section Ressources -->
         <section id="resources" class="resources section">
             <h2><i class="fas fa-folder-open"></i> Ressources par matière</h2>
@@ -144,7 +143,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Section Webinaires -->
         <section class="webinaires section">
             <h2><i class="fas fa-calendar-alt"></i> Prochains Webinaires</h2>
@@ -161,12 +159,10 @@
             </div>
         </section>
     </main>
-
     <!-- Pied de page -->
     <footer>
         <p>© 2025 Le Coin Des Curieux - Site pédagogique pour enseignants</p>
     </footer>
-
     <!-- Modale de connexion -->
     <div id="login-modal" class="modal">
         <div class="modal-content">
@@ -185,7 +181,6 @@
             </form>
         </div>
     </div>
-
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
