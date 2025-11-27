@@ -264,3 +264,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// =============================================
+// 8
+. Gestion des articles (navigation vers la page dédiée)
+// =============================================
+document.querySelectorAll('.article-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        // Vérifier si le clic provient du bouton "Lire la suite" ou d'un lien
+        if (e.target.classList.contains('btn-read') || e.target.closest('.btn-read')) {
+            const url = card.getAttribute('data-url');
+            if (url) {
+                window.location.href = url + '?id=' + card.getAttribute('data-category');
+            }
+        }
+    });
+});
+
+// Remplacer la fonction filterContent pour gérer les liens
+function filterContent(query) {
+    const lowerQuery = normalizeString(query);
+    document.querySelectorAll('.article-card').forEach(article => {
+        const title = normalizeString(article.querySelector('h3').textContent);
+        const content = normalizeString(article.querySelector('p').textContent);
+        const category = normalizeString(article.getAttribute('data-category') || '');
+        article.style.display = (title.includes(lowerQuery) || content.includes(lowerQuery) || category.includes(lowerQuery)) ? 'block' : 'none';
+    });
+}
